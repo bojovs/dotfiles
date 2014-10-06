@@ -1,0 +1,7 @@
+.DS_Store
+.node-gyp
+
+/.vim/bundle
+/.atom/compile-cache
+/.atom/packages
+/.atom/storage
