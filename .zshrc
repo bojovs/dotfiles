@@ -8,6 +8,9 @@ export GOPATH=$HOME/dev/golang
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# rbenv
+eval "$(rbenv init -)"
+
 # プロンプトの表示形式
 # http://news.mynavi.jp/column/zsh/002/index.html
 PROMPT="%m:%n$ "
