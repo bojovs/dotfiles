@@ -2,9 +2,9 @@
 
 dotfiles = [
   '.atom',
-  '.bash_profile',
   '.gitconfig',
-  '.gitignore_global'
+  '.gitignore_global',
+  '.zshrc',
 ]
 
 dotfiles.each do |file|
