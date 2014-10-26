@@ -2,6 +2,7 @@
 
 dotfiles = [
   '.atom',
+  '.bash_profile',
   '.gitconfig',
   '.gitignore_global'
 ]
