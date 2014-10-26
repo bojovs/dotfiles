@@ -1,0 +1,44 @@
+{
+  "name": "rails-transporter",
+  "main": "./lib/rails-transporter",
+  "version": "0.5.0",
+  "description": "Easily open related files on Rails",
+  "activationEvents": [
+    "rails-transporter:open-controller",
+    "rails-transporter:open-view-finder",
+    "rails-transporter:open-layout",
+    "rails-transporter:open-model",
+    "rails-transporter:open-helper",
+    "rails-transporter:open-spec",
+    "rails-transporter:open-partial-template",
+    "rails-transporter:open-asset",
+    "rails-transporter:open-migration-finder"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hmatsuda/rails-transporter"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "pluralize": "0.0.9",
+    "temp": "~0.6.0",
+    "wrench": "^1.5",
+    "underscore": "1.x",
+    "glob": "4.x"
+  },
+  "readme": "# Rails Transporter package [![Build Status](https://travis-ci.org/hmatsuda/rails-transporter.svg)](https://travis-ci.org/hmatsuda/rails-transporter)\n\nThis package provides commands to open controller, view, model, helper template, asset and migration on Ruby on Rails on Atom editor.\n\nQuickly open files or finder using following keymaps.\n\n* `ctrl-alt-r c` - Open controller from model, view or controller-spec\n* `ctrl-alt-r v` - Open view finder from controller, model or mailer\n* `ctrl-alt-r l` - Open layout from view\n* `ctrl-alt-r m` - Open model from controller, view or model-spec\n* `ctrl-alt-r h` - Open helper from controller, view or helper-spec\n* `ctrl-alt-r s` - Open spec from controller, helper or model\n* `ctrl-alt-r p` - Open partial template from render method in view\n* `ctrl-alt-r a` - Open asset from javascript_include_tag or stylesheet_link_tag method in view\n* `ctrl-alt-r d m` - Open migration finder\n\n![](http://cl.ly/image/0q2B370v3S3Y/out.gif)\n\n## Requirement\n* OSX\n* Ruby 1.9.3+\n* Rails 2.0.0+\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/hmatsuda/rails-transporter/issues"
+  },
+  "homepage": "https://github.com/hmatsuda/rails-transporter",
+  "_id": "rails-transporter@0.5.0",
+  "dist": {
+    "shasum": "8ed3dd364e0fe409e2750ce576afc486d4a34361"
+  },
+  "_resolved": "/var/folders/22/z68ckyw51tq28_hd5ytwrqzr0000gn/T/d-114815-35871-tysjt/package.tgz",
+  "_from": "/var/folders/22/z68ckyw51tq28_hd5ytwrqzr0000gn/T/d-114815-35871-tysjt/package.tgz"
+}
