@@ -7,6 +7,16 @@ PROMPT="%m:%n$ "
 RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? "
 
+# ヒストリを保存するファイル
+HISTFILE=~/Dropbox/devenv/dotfiles/.zsh_history
+
+# メモリ上のヒストリ数
+# 大きな数を指定してすべてのヒストリを保存するようにしている
+HISTSIZE=10000000
+
+# 保存するヒストリ数
+SAVEHIST=$HISTSIZE
+
 
 alias a='atom'
 
