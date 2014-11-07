@@ -1,18 +1,17 @@
-'exception-reporting':
-  'userId': 'ec689dd8-f8c2-3b84-6e60-82f886bee482'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': 'ac7d9da1254a329593e491f3c946a8248950d5b8'
-'core':
-  'themes': [
-    'seti-ui'
-    'solarized-light-syntax'
-  ]
-  'audioBeep': false
-  'excludeVcsIgnoredPaths': false
-'editor':
-  'fontFamily': 'Ubuntu Mono'
-  'fontSize': 14
-  'invisibles': {}
-'autocomplete-plus': {}
+'global':
+  'exception-reporting':
+    'userId': 'ec689dd8-f8c2-3b84-6e60-82f886bee482'
+  'welcome':
+    'showOnStartup': false
+  'metrics':
+    'userId': 'ac7d9da1254a329593e491f3c946a8248950d5b8'
+  'core':
+    'themes': [
+      'seti-ui'
+      'solarized-light-syntax'
+    ]
+    'audioBeep': false
+    'excludeVcsIgnoredPaths': false
+  'editor':
+    'fontFamily': 'Ubuntu Mono'
+    'fontSize': 14
