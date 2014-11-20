@@ -15,5 +15,5 @@
   'editor':
     'fontFamily': 'Ubuntu Mono'
     'fontSize': 14
-    'invisibles': {}
     'zoomFontWhenCtrlScrolling': true
+    'invisibles': {}
