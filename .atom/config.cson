@@ -14,6 +14,5 @@
     'excludeVcsIgnoredPaths': false
   'editor':
     'fontFamily': 'Ubuntu Mono'
-    'fontSize': 14
     'zoomFontWhenCtrlScrolling': true
-    'invisibles': {}
+    'fontSize': 14
