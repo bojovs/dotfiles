@@ -1,7 +1,7 @@
 {
   "name": "rails-transporter",
   "main": "./lib/rails-transporter",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Easily open related files on Rails",
   "activationEvents": [
     "rails-transporter:open-controller",
@@ -30,24 +30,24 @@
     "underscore": "1.x",
     "glob": "4.x"
   },
-  "readme": "# Rails Transporter package [![Build Status](https://travis-ci.org/hmatsuda/rails-transporter.svg)](https://travis-ci.org/hmatsuda/rails-transporter)\n\nThis package provides commands to open controller, view, model, helper template, asset and migration on Ruby on Rails on Atom editor.\n\nQuickly open files or finder using following keymaps.\n\n* `ctrl-r c` - Open controller from model, view or controller-spec\n* `ctrl-r v f` - Open view finder from controller, model or mailer\n* `ctrl-r v` - Open view where the cursor is inside action method on controller\n* `ctrl-r l` - Open layout from view\n* `ctrl-r m` - Open model from controller, view or model-spec\n* `ctrl-r h` - Open helper from controller, view or helper-spec\n* `ctrl-r s` - Open spec from controller, helper or model\n* `ctrl-r p` - Open partial template from render method in view\n* `ctrl-r a` - Open asset from javascript_include_tag or stylesheet_link_tag method in view\n* `ctrl-r d m` - Open migration finder\n\n![](http://cl.ly/image/0q2B370v3S3Y/out.gif)\n\n## Requirement\n* OSX\n* Ruby 1.9.3+\n* Rails 2.0.0+\n",
+  "readme": "# Rails Transporter package [![Build Status](https://travis-ci.org/hmatsuda/rails-transporter.svg)](https://travis-ci.org/hmatsuda/rails-transporter)\n\nThis package provides commands to open controller, view, model, helper template, asset and migration on Ruby on Rails on Atom editor.\n\nQuickly open files or finder using following keymaps.\n\n* `ctrl-r c` - Open controller from model, view or controller-spec\n* `ctrl-r v f` - Open view finder from controller, model or mailer\n* `ctrl-r v` - Open view where the cursor is inside action method on controller. If no view found, show dialog to create new file\n* `ctrl-r l` - Open layout from view\n* `ctrl-r m` - Open model from controller, view or model-spec\n* `ctrl-r h` - Open helper from controller, view or helper-spec\n* `ctrl-r s` - Open spec from controller, helper or model\n* `ctrl-r p` - Open partial template from render method in view\n* `ctrl-r a` - Open asset from javascript_include_tag or stylesheet_link_tag method in view\n* `ctrl-r d m` - Open migration finder\n\n![](http://cl.ly/image/0q2B370v3S3Y/out.gif)\n\n## Requirement\n* OSX\n* Ruby 1.9.3+\n* Rails 2.0.0+\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hmatsuda/rails-transporter/issues"
   },
   "homepage": "https://github.com/hmatsuda/rails-transporter",
-  "_id": "rails-transporter@0.6.0",
+  "_id": "rails-transporter@0.7.0",
   "dist": {
-    "shasum": "65d7a8c71b27b72900a02b08b669c2618ea6a17e"
+    "shasum": "acd462b81f41b4486b10d52f4c8b94ea573679cd"
   },
-  "_resolved": "/private/var/folders/22/z68ckyw51tq28_hd5ytwrqzr0000gn/T/d-1141030-39387-1ipyaav/package.tgz",
-  "_from": "/private/var/folders/22/z68ckyw51tq28_hd5ytwrqzr0000gn/T/d-1141030-39387-1ipyaav/package.tgz",
+  "_resolved": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-114118-80037-1ic4crt/package.tgz",
+  "_from": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-114118-80037-1ic4crt/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "glob",
-        "version": "4.2.1",
+        "version": "4.3.1",
         "path": "node_modules/glob/glob.js"
       },
       {
@@ -67,18 +67,23 @@
       },
       {
         "name": "minimatch",
-        "version": "1.0.0",
+        "version": "2.0.1",
         "path": "node_modules/glob/node_modules/minimatch/minimatch.js"
       },
       {
-        "name": "lru-cache",
-        "version": "2.5.0",
-        "path": "node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+        "name": "brace-expansion",
+        "version": "1.0.1",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
-        "name": "sigmund",
-        "version": "1.0.0",
-        "path": "node_modules/glob/node_modules/minimatch/node_modules/sigmund/sigmund.js"
+        "name": "balanced-match",
+        "version": "0.2.0",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js"
+      },
+      {
+        "name": "concat-map",
+        "version": "0.0.0",
+        "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js"
       },
       {
         "name": "once",
@@ -145,10 +150,15 @@
         "node_modules/glob/node_modules/inherits/inherits.js",
         "node_modules/glob/node_modules/inherits/inherits_browser.js",
         "node_modules/glob/node_modules/inherits/test.js",
+        "node_modules/glob/node_modules/minimatch/benchmark.js",
+        "node_modules/glob/node_modules/minimatch/browser.js",
         "node_modules/glob/node_modules/minimatch/minimatch.js",
-        "node_modules/glob/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
-        "node_modules/glob/node_modules/minimatch/node_modules/sigmund/bench.js",
-        "node_modules/glob/node_modules/minimatch/node_modules/sigmund/sigmund.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/example.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/example.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js",
         "node_modules/glob/node_modules/once/node_modules/wrappy/wrappy.js",
         "node_modules/glob/node_modules/once/once.js",
         "node_modules/glob/sync.js",
@@ -168,8 +178,9 @@
         "node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
         "node_modules/glob/node_modules/inflight/package.json",
         "node_modules/glob/node_modules/inherits/package.json",
-        "node_modules/glob/node_modules/minimatch/node_modules/lru-cache/package.json",
-        "node_modules/glob/node_modules/minimatch/node_modules/sigmund/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json",
+        "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json",
         "node_modules/glob/node_modules/minimatch/package.json",
         "node_modules/glob/node_modules/once/node_modules/wrappy/package.json",
         "node_modules/glob/node_modules/once/package.json",
@@ -214,7 +225,7 @@
         "dependencies": {
           "inflight": "^1.0.4",
           "inherits": "2",
-          "minimatch": "^1.0.0",
+          "minimatch": "^2.0.1",
           "once": "^1.3.0"
         }
       },
@@ -233,8 +244,17 @@
           "node_modules/glob/node_modules/minimatch/test"
         ],
         "dependencies": {
-          "lru-cache": "2",
-          "sigmund": "~1.0.0"
+          "brace-expansion": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion",
+          "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/test"
+        ],
+        "dependencies": {
+          "balanced-match": "^0.2.0",
+          "concat-map": "0.0.0"
         }
       },
       {
