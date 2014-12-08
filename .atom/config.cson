@@ -16,3 +16,4 @@
     'fontFamily': 'Ubuntu Mono'
     'zoomFontWhenCtrlScrolling': true
     'fontSize': 14
+    'invisibles': {}
