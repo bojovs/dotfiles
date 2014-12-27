@@ -13,3 +13,18 @@
 #     'prefix': 'log'
 #     'body': 'console.log $1'
 #
+
+'.source.coffee':
+  'Console log':
+    'prefix': 'log'
+    'body': 'console.log $1'
+
+'.source.rb':
+  'Binding Pry':
+    'prefix': 'pry'
+    'body': 'binding.pry'
+
+'.source.slim':
+  'Binding Pry':
+    'prefix': 'pry'
+    'body': 'binding.pry'
