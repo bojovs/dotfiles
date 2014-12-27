@@ -14,22 +14,39 @@ class FileOpener
   openView: ->
     @reloadCurrentEditor()
 
-    if @isController(@currentFile)
-      for rowNumber in [@cusorPos.row..0]
-        currentLine = @editor.lineTextForBufferRow(rowNumber)
-        result = currentLine.match /^\s*def\s+(\w+)/
-        if result?[1]?
+    for rowNumber in [@cusorPos.row..0]
+      currentLine = @editor.lineTextForBufferRow(rowNumber)
+      result = currentLine.match /^\s*def\s+(\w+)/
+      if result?[1]?
+        
+        if @isController(@currentFile)
           targetFiles = glob.sync(@currentFile.replace('controllers', 'views')
                                               .replace(/_controller\.rb$/, "/#{result[1]}.*"))
-          if targetFiles.length isnt 0
-            for file in targetFiles
-              if fs.existsSync file
-                @open(file)
-          else
-            atom.beep()
-                
-          return
-      atom.beep()
+        else if @isMailer(@currentFile)
+          targetFiles = glob.sync(@currentFile.replace('mailers', 'views')
+                                              .replace(/\.rb$/, "/#{result[1]}.*"))
+        else
+          targetFiles = []
+          
+        if targetFiles.length isnt 0
+          for file in targetFiles
+            if fs.existsSync file
+              @open(file)
+        else
+          # no matching file was found.
+          configExtension = atom.config.get('rails-transporter.newFileExtension')
+          if @isController(@currentFile)
+            pathOfNewFile = @currentFile.replace('controllers', 'views')
+                                        .replace(/_controller\.rb$/, "/#{result[1]}.#{configExtension}")
+          else if @isMailer(@currentFile)
+            pathOfNewFile = @currentFile.replace('mailers', 'views')
+                                        .replace(/\.rb$/, "/#{result[1]}.#{configExtension}")
+          
+          @openDialog(pathOfNewFile)
+        return
+        
+    # there were no methods above the line where the command was triggered.
+    atom.beep()
 
   openController: ->
     @reloadCurrentEditor()
@@ -43,8 +60,12 @@ class FileOpener
     else if @isSpec(@currentFile)
       targetFile = @currentFile.replace('spec/', 'app/').replace('_spec.rb', '.rb')
 
-    @open(targetFile)
-    
+    if fs.existsSync targetFile
+      @open(targetFile)
+    else
+      @openDialog(targetFile)
+      
+
   openModel: ->
     @reloadCurrentEditor()
     if @isController(@currentFile)
@@ -57,12 +78,15 @@ class FileOpener
       resource = path.basename(dir)
       targetFile = dir.replace("app/views/", "app/models/")
                       .replace(resource, "#{pluralize.singular(resource)}.rb")
-                      
+
     else if @isSpec(@currentFile)
       targetFile = @currentFile.replace('spec/', 'app/').replace('_spec.rb', '.rb')
 
-    @open(targetFile)
-  
+    if fs.existsSync targetFile
+      @open(targetFile)
+    else
+      @openDialog(targetFile)
+
   openHelper: ->
     @reloadCurrentEditor()
     if @isController(@currentFile)
@@ -79,8 +103,11 @@ class FileOpener
       targetFile = path.dirname(@currentFile)
                        .replace("app/views/", "app/helpers/") + "_helper.rb"
 
-    @open(targetFile)
-    
+    if fs.existsSync targetFile
+      @open(targetFile)
+    else
+      @openDialog(targetFile)
+
   openSpec: ->
     @reloadCurrentEditor()
     if @isController(@currentFile)
@@ -92,14 +119,17 @@ class FileOpener
     else if @isModel(@currentFile)
       targetFile = @currentFile.replace('app/models', 'spec/models')
                                .replace('.rb', '_spec.rb')
+                               
+    if fs.existsSync targetFile
+      @open(targetFile)
+    else
+      @openDialog(targetFile)
 
-    @open(targetFile)
-      
   openPartial: ->
     @reloadCurrentEditor()
     if @isView(@currentFile)
       if @currentBufferLine.indexOf("render") isnt -1
-        
+
         if @currentBufferLine.indexOf("partial") is -1
           result = @currentBufferLine.match(/render\s*\(?\s*["']([a-zA-Z0-9_\-\./]+)["']/)
           targetFile = @partialFullPath(@currentFile, result[1]) if result?[1]?
@@ -107,8 +137,11 @@ class FileOpener
           result = @currentBufferLine.match(/render\s*\(?\s*\:?partial(\s*=>|:*)\s*["']([a-zA-Z0-9_\-\./]+)["']/)
           targetFile = @partialFullPath(@currentFile, result[2]) if result?[2]?
 
-    @open(targetFile)
-    
+    if fs.existsSync targetFile
+      @open(targetFile)
+    else
+      @openDialog(targetFile)
+
   openAsset: ->
     @reloadCurrentEditor()
     if @isView(@currentFile)
@@ -118,7 +151,7 @@ class FileOpener
       else if @currentBufferLine.indexOf("stylesheet_link_tag") isnt -1
         result = @currentBufferLine.match(/stylesheet_link_tag\s*\(?\s*["']([a-zA-Z0-9_\-\./]+)["']/)
         targetFile = @assetFullPath(result[1], 'css') if result?[1]?
-        
+
     else if @isAsset(@currentFile)
       if @currentBufferLine.indexOf("require ") isnt -1
         result = @currentBufferLine.match(/require\s*([a-zA-Z0-9_\-\./]+)\s*$/)
@@ -127,15 +160,15 @@ class FileOpener
         else if @currentFile.indexOf("app/assets/stylesheets") isnt -1
           targetFile = @assetFullPath(result[1], 'css') if result?[1]?
       else if @currentBufferLine.indexOf("require_tree ") isnt -1
-        @createAssetFinderView().toggle()
+        return @createAssetFinderView().toggle()
       else if @currentBufferLine.indexOf("require_directory ") isnt -1
-        @createAssetFinderView().toggle()
+        return @createAssetFinderView().toggle()
 
     @open(targetFile)
 
   openLayout: ->
     @reloadCurrentEditor()
-    layoutDir = "#{atom.project.getPath()}/app/views/layouts"
+    layoutDir = "#{atom.project.getPaths()[0]}/app/views/layouts"
     if @isController(@currentFile)
       if @currentBufferLine.indexOf("layout") isnt -1
         result = @currentBufferLine.match(/layout\s*\(?\s*["']([a-zA-Z0-9_\-\./]+)["']/)
@@ -153,20 +186,36 @@ class FileOpener
   createAssetFinderView: ->
     unless @assetFinderView?
       @assetFinderView = new AssetFinderView()
-      
+
     @assetFinderView
 
   reloadCurrentEditor: ->
-    @editor = atom.workspace.getActiveEditor()
+    @editor = atom.workspace.getActiveTextEditor()
     @currentFile = @editor.getPath()
-    @cusorPos = @editor.getCursor().getBufferPosition()
-    @currentBufferLine = @editor.getCursor().getCurrentBufferLine()
+    @cusorPos = @editor.getLastCursor().getBufferPosition()
+    @currentBufferLine = @editor.getLastCursor().getCurrentBufferLine()
 
   open: (targetFile) ->
     return unless targetFile?
     files = if typeof(targetFile) is 'string' then [targetFile] else targetFile
     for file in files
-      atom.workspaceView.open(file) if fs.existsSync(file)
+      atom.workspace.open(file) if fs.existsSync(file)
+  
+  openDialog: (targetFile) ->
+    if targetFile?
+      atom.confirm
+        message: "No #{targetFile} found"
+        detailedMessage: "Shall we create #{targetFile} for you?"
+        buttons:
+          Yes: ->
+            atom.workspace.open(targetFile)
+            return
+          No: ->
+            atom.beep()
+            return
+    else
+      atom.beep()
+    
 
   partialFullPath: (currentFile, partialName) ->
     tmplEngine = path.extname(currentFile)
@@ -174,21 +223,20 @@ class FileOpener
     if partialName.indexOf("/") is -1
       "#{path.dirname(currentFile)}/_#{partialName}#{ext}#{tmplEngine}"
     else
-      "#{atom.project.getPath()}/app/views/#{path.dirname(partialName)}/_#{path.basename(partialName)}#{ext}#{tmplEngine}"
-  
+      "#{atom.project.getPaths()[0]}/app/views/#{path.dirname(partialName)}/_#{path.basename(partialName)}#{ext}#{tmplEngine}"
+
   assetFullPath: (assetName, ext) ->
     switch path.extname(assetName)
       when ".coffee", ".js", ".scss", ".css"
         fileName = path.basename(assetName)
       else
         fileName = "#{path.basename(assetName)}.#{ext}"
-    
+
     if assetName.match(/^\//)
-      "#{atom.project.getPath()}/public/#{path.dirname(assetName)}/#{fileName}"
+      "#{atom.project.getPaths()[0]}/public/#{path.dirname(assetName)}/#{fileName}"
     else
       assetsDir = if ext is 'js' then "javascripts" else "stylesheets"
       for location in ['app', 'lib', 'vendor']
-        pattern = "#{atom.project.getPath()}/#{location}/assets/#{assetsDir}/#{path.dirname(assetName)}/#{fileName}*"
+        pattern = "#{atom.project.getPaths()[0]}/#{location}/assets/#{assetsDir}/#{path.dirname(assetName)}/#{fileName}*"
         targetFile = glob.sync(pattern)
-        console.log targetFile
         return targetFile if targetFile.length > 0
