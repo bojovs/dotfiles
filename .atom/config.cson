@@ -17,4 +17,7 @@
     'zoomFontWhenCtrlScrolling': true
     'fontSize': 14
     'invisibles': {}
-  'autocomplete-plus': {}
+  'autosave':
+    'enabled': true
+  'tree-view':
+    'hideIgnoredNames': true
