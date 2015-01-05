@@ -1,20 +1,22 @@
 {
   "name": "rails-transporter",
   "main": "./lib/rails-transporter",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Easily open related files on Rails",
-  "activationEvents": [
-    "rails-transporter:open-controller",
-    "rails-transporter:open-view-finder",
-    "rails-transporter:open-layout",
-    "rails-transporter:open-model",
-    "rails-transporter:open-helper",
-    "rails-transporter:open-spec",
-    "rails-transporter:open-partial-template",
-    "rails-transporter:open-asset",
-    "rails-transporter:open-migration-finder",
-    "rails-transporter:open-view"
-  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "rails-transporter:open-controller",
+      "rails-transporter:open-view-finder",
+      "rails-transporter:open-layout",
+      "rails-transporter:open-model",
+      "rails-transporter:open-helper",
+      "rails-transporter:open-spec",
+      "rails-transporter:open-partial-template",
+      "rails-transporter:open-asset",
+      "rails-transporter:open-migration-finder",
+      "rails-transporter:open-view"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hmatsuda/rails-transporter"
@@ -24,30 +26,91 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
+    "atom-space-pen-views": "^0.20.0",
     "pluralize": "0.0.9",
     "temp": "~0.6.0",
     "wrench": "^1.5",
     "underscore": "1.x",
     "glob": "4.x"
   },
-  "readme": "# Rails Transporter package [![Build Status](https://travis-ci.org/hmatsuda/rails-transporter.svg)](https://travis-ci.org/hmatsuda/rails-transporter)\n\nThis package provides commands to open controller, view, model, helper template, asset and migration on Ruby on Rails on Atom editor.\n\nQuickly open files or finder using following keymaps.\n\n* `ctrl-r c` - Open controller from model, view or controller-spec\n* `ctrl-r v f` - Open view finder from controller, model or mailer\n* `ctrl-r v` - Open view where the cursor is inside action method on controller. If no view found, show dialog to create new file\n* `ctrl-r l` - Open layout from view\n* `ctrl-r m` - Open model from controller, view or model-spec\n* `ctrl-r h` - Open helper from controller, view or helper-spec\n* `ctrl-r s` - Open spec from controller, helper or model\n* `ctrl-r p` - Open partial template from render method in view\n* `ctrl-r a` - Open asset from javascript_include_tag or stylesheet_link_tag method in view\n* `ctrl-r d m` - Open migration finder\n\n![](http://cl.ly/image/0q2B370v3S3Y/out.gif)\n\n## Requirement\n* OSX\n* Ruby 1.9.3+\n* Rails 2.0.0+\n",
+  "readme": "# Rails Transporter package [![Build Status](https://travis-ci.org/hmatsuda/rails-transporter.svg)](https://travis-ci.org/hmatsuda/rails-transporter)\n\nThis package provides commands to open controller, view, model, helper template, asset and migration on Ruby on Rails on Atom editor.\n\nQuickly open files or finder using following keymaps.\n\n* `ctrl-r c` - Open controller from model, view or controller-spec. If no controller found, show dialog to create new file\n* `ctrl-r v f` - Open view finder from controller, model or mailer\n* `ctrl-r v` - Open view where the cursor is inside action method on controller. If no view found, show dialog to create new file\n* `ctrl-r l` - Open layout from view\n* `ctrl-r m` - Open model from controller, view or model-spec. If no model found, show dialog to create new file\n* `ctrl-r h` - Open helper from controller, view or helper-spec. If no helper found, show dialog to create new file\n* `ctrl-r s` - Open spec from controller, helper or model. If no spec found, show dialog to create new file\n* `ctrl-r p` - Open partial template from render method in view. If no partial template found, show dialog to create new file\n* `ctrl-r a` - Open asset from javascript_include_tag or stylesheet_link_tag method in view\n* `ctrl-r d m` - Open migration finder\n\n![](http://cl.ly/image/0q2B370v3S3Y/out.gif)\n\n## Requirement\n* OSX\n* Ruby 1.9.3+\n* Rails 2.0.0+\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/hmatsuda/rails-transporter/issues"
   },
   "homepage": "https://github.com/hmatsuda/rails-transporter",
-  "_id": "rails-transporter@0.7.0",
+  "_id": "rails-transporter@0.8.0",
   "dist": {
-    "shasum": "acd462b81f41b4486b10d52f4c8b94ea573679cd"
+    "shasum": "ad14eed17831064bc79b3500461b9f48bb0942a5"
   },
-  "_resolved": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-114118-80037-1ic4crt/package.tgz",
-  "_from": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-114118-80037-1ic4crt/package.tgz",
+  "_resolved": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-1141124-8648-1fms373/package.tgz",
+  "_from": "/private/var/folders/l_/g1s8rtr93090njlfk0d38w_r0000gn/T/d-1141124-8648-1fms373/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
+        "name": "fuzzaldrin",
+        "version": "2.1.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/lib/fuzzaldrin.js"
+      },
+      {
+        "name": "grim",
+        "version": "0.12.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/lib/grim.js"
+      },
+      {
+        "name": "emissary",
+        "version": "1.3.1",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/emissary.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "mixto",
+        "version": "1.0.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/mixto/lib/mixin.js"
+      },
+      {
+        "name": "property-accessors",
+        "version": "1.1.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js"
+      },
+      {
+        "name": "harmony-collections",
+        "version": "0.3.7",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "space-pen",
+        "version": "4.3.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/space-pen/lib/space-pen.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
         "name": "glob",
-        "version": "4.3.1",
+        "version": "4.3.2",
         "path": "node_modules/glob/glob.js"
       },
       {
@@ -72,7 +135,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.0.1",
+        "version": "1.1.0",
         "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {
@@ -82,7 +145,7 @@
       },
       {
         "name": "concat-map",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "path": "node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js"
       },
       {
@@ -139,9 +202,40 @@
         "lib/migration-finder-view.coffee",
         "lib/rails-transporter.coffee",
         "lib/rails-util.coffee",
-        "lib/view-finder-view.coffee"
+        "lib/view-finder-view.coffee",
+        "node_modules/atom-space-pen-views/lib/main.coffee",
+        "node_modules/atom-space-pen-views/lib/scroll-view.coffee",
+        "node_modules/atom-space-pen-views/lib/select-list-view.coffee",
+        "node_modules/atom-space-pen-views/lib/text-editor-view.coffee"
       ],
       ".js": [
+        "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/lib/filter.js",
+        "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/lib/fuzzaldrin.js",
+        "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/lib/matcher.js",
+        "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/lib/scorer.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/lib/deprecation.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/lib/grim.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/behavior.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/emissary.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/emitter.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/helpers.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/signal.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/subscriber.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib/subscription.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/mixto/lib/mixin.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib/property-accessors.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/harmony-collections.min.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/lib/space-pen.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/vendor/jquery.js",
         "node_modules/glob/common.js",
         "node_modules/glob/glob.js",
         "node_modules/glob/node_modules/inflight/inflight.js",
@@ -175,6 +269,20 @@
         "node_modules/wrench/lib/wrench.js"
       ],
       ".json": [
+        "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/harmony-collections/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/mixto/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/node_modules/harmony-collections/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/package.json",
+        "node_modules/atom-space-pen-views/node_modules/grim/package.json",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/api.json",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/package.json",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/package.json",
+        "node_modules/atom-space-pen-views/package.json",
         "node_modules/glob/node_modules/inflight/node_modules/wrappy/package.json",
         "node_modules/glob/node_modules/inflight/package.json",
         "node_modules/glob/node_modules/inherits/package.json",
@@ -211,11 +319,82 @@
           "spec"
         ],
         "dependencies": {
+          "atom-space-pen-views": "^0.20.0",
           "pluralize": "0.0.9",
           "temp": "~0.6.0",
           "wrench": "^1.5",
           "underscore": "1.x",
           "glob": "4.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/lib",
+          "node_modules/atom-space-pen-views"
+        ],
+        "dependencies": {
+          "fuzzaldrin": "^2.1.0",
+          "grim": "^0.12.0",
+          "space-pen": "^4.2.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/grim/lib",
+          "node_modules/atom-space-pen-views/node_modules/grim"
+        ],
+        "dependencies": {
+          "underscore-plus": "^1.0.0",
+          "emissary": "^1.2.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/lib",
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mixto": "1.x",
+          "property-accessors": "^1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors/lib",
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/emissary/node_modules/property-accessors"
+        ],
+        "dependencies": {
+          "mixto": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus/lib",
+          "node_modules/atom-space-pen-views/node_modules/grim/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/space-pen",
+          "node_modules/atom-space-pen-views/node_modules/space-pen/lib",
+          "node_modules/atom-space-pen-views/node_modules/space-pen/vendor"
+        ],
+        "dependencies": {
+          "grim": "^0.12.0",
+          "underscore-plus": "1.x"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/lib",
+          "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
         }
       },
       {
@@ -254,7 +433,7 @@
         ],
         "dependencies": {
           "balanced-match": "^0.2.0",
-          "concat-map": "0.0.0"
+          "concat-map": "0.0.1"
         }
       },
       {

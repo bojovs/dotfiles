@@ -17,3 +17,5 @@
     'zoomFontWhenCtrlScrolling': true
     'fontSize': 14
     'invisibles': {}
+  'autocomplete-plus': {}
+  'rails-transporter': {}
