@@ -1,4 +1,4 @@
-'global':
+'*':
   'exception-reporting':
     'userId': 'ec689dd8-f8c2-3b84-6e60-82f886bee482'
   'welcome':
@@ -6,16 +6,16 @@
   'metrics':
     'userId': 'ac7d9da1254a329593e491f3c946a8248950d5b8'
   'core':
+    'excludeVcsIgnoredPaths': false
     'themes': [
-      'seti-ui'
+      'atom-dark-ui'
       'solarized-light-syntax'
     ]
     'audioBeep': false
-    'excludeVcsIgnoredPaths': false
   'editor':
     'fontFamily': 'Ubuntu Mono'
-    'zoomFontWhenCtrlScrolling': true
     'fontSize': 14
     'invisibles': {}
+    'zoomFontWhenCtrlScrolling': true
   'autocomplete-plus': {}
   'rails-transporter': {}
