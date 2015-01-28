@@ -13,7 +13,7 @@
     ]
     audioBeep: false
   editor:
-    fontFamily: "Ricty Diminished Discord"
+    fontFamily: "Ricty Diminished"
     invisibles: {}
     zoomFontWhenCtrlScrolling: true
   "autocomplete-plus": {}
