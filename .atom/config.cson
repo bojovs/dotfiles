@@ -13,8 +13,7 @@
     ]
     audioBeep: false
   editor:
-    fontFamily: "Ubuntu Mono"
-    fontSize: 14
+    fontFamily: "Ricty Diminished Discord"
     invisibles: {}
     zoomFontWhenCtrlScrolling: true
   "autocomplete-plus": {}
