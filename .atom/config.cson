@@ -6,14 +6,23 @@
   metrics:
     userId: "ac7d9da1254a329593e491f3c946a8248950d5b8"
   core:
+    ignoredNames: [
+      ".git"
+      ".DS_Store"
+      ".idea"
+      "*.log"
+      "coverage/*"
+      "tmp/*"
+    ]
     excludeVcsIgnoredPaths: false
     themes: [
-      "atom-dark-ui"
-      "solarized-light-syntax"
+      "one-dark-ui"
+      "one-dark-syntax"
     ]
     audioBeep: false
   editor:
     fontFamily: "Ricty Diminished"
+    showIndentGuide: true
     invisibles: {}
     zoomFontWhenCtrlScrolling: true
   "autocomplete-plus": {}
