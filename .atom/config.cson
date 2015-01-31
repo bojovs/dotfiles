@@ -17,5 +17,9 @@
     showIndentGuide: true
     invisibles: {}
     zoomFontWhenCtrlScrolling: true
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    fileBlacklist: [
+      ".*"
+    ]
   "rails-transporter": {}
+  "autocomplete-emojis": {}
