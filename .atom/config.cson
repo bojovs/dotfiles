@@ -6,15 +6,7 @@
   metrics:
     userId: "ac7d9da1254a329593e491f3c946a8248950d5b8"
   core:
-    ignoredNames: [
-      ".git"
-      ".DS_Store"
-      ".idea"
-      "*.log"
-      "coverage/*"
-      "tmp/*"
-    ]
-    excludeVcsIgnoredPaths: false
+    excludeVcsIgnoredPaths: true
     themes: [
       "one-dark-ui"
       "one-dark-syntax"
