@@ -1,0 +1,9 @@
+'packages': [
+  'autocomplete-plus'
+  'autocomplete-snippets'
+  'language-slim'
+  'package-sync'
+  'rails-transporter'
+  'seti-ui'
+  'sort-lines'
+]
