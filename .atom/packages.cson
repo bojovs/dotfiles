@@ -6,4 +6,6 @@
   'package-sync'
   'sort-lines'
   'vertical-align'
+  'symbols-tree-view'
+  'toggle-quotes'
 ]
