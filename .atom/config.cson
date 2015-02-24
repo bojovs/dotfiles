@@ -26,3 +26,4 @@
   "autocomplete-emojis": {}
   "symbols-tree-view":
     autoToggle: true
+    scrollAnimation: false
