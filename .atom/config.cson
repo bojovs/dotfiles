@@ -24,3 +24,5 @@
     ]
   "rails-transporter": {}
   "autocomplete-emojis": {}
+  "symbols-tree-view":
+    autoToggle: true
