@@ -27,3 +27,6 @@
   "symbols-tree-view":
     autoToggle: true
     scrollAnimation: false
+  "aligner-ruby": {}
+  "aligner-css": {}
+  "aligner-scss": {}
