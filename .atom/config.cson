@@ -25,9 +25,7 @@
   "autocomplete-emojis": {}
   autosave:
     enabled: true
-  "symbols-tree-view":
-    autoToggle: true
-    scrollAnimation: false
-  "aligner-ruby": {}
   "aligner-css": {}
   "aligner-scss": {}
+  "aligner-ruby": {}
+  linter: {}
