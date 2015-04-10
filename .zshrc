@@ -19,6 +19,7 @@ SAVEHIST=$HISTSIZE
 
 
 alias a='atom'
+alias asi='apm stars --install'
 
 alias vd='vagrant destroy'
 alias vh='vagrant halt'
