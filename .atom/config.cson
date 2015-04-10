@@ -14,7 +14,6 @@
     audioBeep: false
   editor:
     fontFamily: "Ricty Diminished"
-    fontSize: 14
     showIndentGuide: true
     invisibles: {}
     zoomFontWhenCtrlScrolling: true
@@ -24,6 +23,5 @@
     ]
   "rails-transporter": {}
   "autocomplete-emojis": {}
-  "symbols-tree-view":
-    autoToggle: true
-    scrollAnimation: false
+  autosave:
+    enabled: true
